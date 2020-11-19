@@ -12,14 +12,14 @@ create table if not exists Artists (
 create table if not exists Albums (
 	Id serial primary key,
 	Name varchar(100) not null,
-	Year integer not null,
+	Year date not null,
 	ArtistsId integer references Artists(Id)
 );
 
 create table if not exists Tracks (
 	Id serial primary key,
 	Name varchar(100) not null unique,
-	Duration timestamp not null,
+	Duration time not null,
 	AlbumsId integer references Albums(Id)
 );
 
