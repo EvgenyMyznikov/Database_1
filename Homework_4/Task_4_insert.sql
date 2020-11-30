@@ -13,7 +13,7 @@ VALUES ('Arkona'),
        ('Eivør Pálsdóttir'),
        ('Wovenhand'),
        ('Umbra et Imago');
-INSERT INTO public.album ("name", "year")
+INSERT INTO public.album ("name", "release_year")
 VALUES ('Khram', '2018-01-19'),
        ('Therapy', '2018-04-20'),
        ('S&M2', '2020-08-28'),
@@ -41,7 +41,7 @@ VALUES ('Manasegl', '02:17:00', 6),
        ('Come Brave', '04:01:00', 7),
        ('The Animals Blues', '08:42:00', 8),
        ('Schandfleck', '05:14:00', 8);
-INSERT INTO public.collection ("name", "year")
+INSERT INTO public.collection ("name", "release_year")
 VALUES ('Best of Arkona', '2018-07-17'),
        ('Balance', '2019-10-25'),
        ('S&M2', '2020-08-28'),

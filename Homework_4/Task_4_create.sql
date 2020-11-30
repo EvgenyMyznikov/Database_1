@@ -14,7 +14,7 @@ create table if not exists Album
 (
     Id   serial primary key,
     Name varchar(100) not null,
-    Year date       not null
+    Release_year date       not null
 );
 
 create table if not exists Track
@@ -29,7 +29,7 @@ create table if not exists Collection
 (
     Id   serial primary key,
     Name varchar(100) not null,
-    Year date         not null
+    Release_year date         not null
 );
 
 create table if not exists GenreArtist

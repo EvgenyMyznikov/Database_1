@@ -1,6 +1,6 @@
-SELECT name, year
+SELECT name, release_year
 FROM album
-WHERE year = 2018;
+WHERE release_year IN('2018-01-01', '2018-12-31');
 
 SELECT name, duration
 FROM track
@@ -12,12 +12,11 @@ WHERE duration >= '03:30';
 
 SELECT name
 FROM collection
-WHERE year >= 2018
-  AND year <= 2020;
+WHERE release_year IN('2018-01-01', '2020-12-31')
 
 SELECT name
-FROM artist
-WHERE name = (SELECT count(name) = 1 FROM artist);
+FROM artist 
+WHERE name NOT LIKE '% %';
 
 SELECT name
 FROM track
