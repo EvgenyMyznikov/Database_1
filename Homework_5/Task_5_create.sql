@@ -52,3 +52,5 @@ create table if not exists CollectionTrack
     Collection_id integer references Collection (id),
     Track_id      integer references Track (id)
 );
+
+
