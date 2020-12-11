@@ -32,18 +32,15 @@ HAVING COUNT(ga.artist_id) > 1;
 
 -- 7.наименование треков, которые не входят в сборники;
 SELECT t.name FROM track AS t
-WHERE id NOT IN(
-    SELECT ct.track_id FROM collectiontrack AS ct
-	LEFT JOIN collection AS c ON ct.id = c.id
-    GROUP BY ct.track_id);
+LEFT JOIN collectiontrack AS ct ON t.id = ct.track_id
+WHERE ct.track_id IS NULL;
 
 -- 8.исполнителя(-ей), написавшего самый короткий по продолжительности трек;
 SELECT a.name FROM artist AS a
-WHERE id IN(
-    SELECT aa.artist_id FROM albumartist AS aa
-    LEFT JOIN track AS t ON aa.id = t.albumid
-        WHERE duration IN(
-            SELECT MIN(duration) FROM track));
+JOIN albumartist AS aa ON a.id = aa.id
+JOIN album AS am ON aa.album_id = am.id
+JOIN track AS t ON am.id = t.albumid
+WHERE t.duration = (SELECT MIN(duration) FROM track);
 
 -- 9.название альбомов, содержащих наименьшее количество треков.
 SELECT DISTINCT a.name FROM album AS a
